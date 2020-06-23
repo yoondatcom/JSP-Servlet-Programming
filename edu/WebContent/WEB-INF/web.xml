@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>edu</display-name>
+  
+  <!-- web app 변수 설정 -->
+  <context-param>
+  	<param-name>contextConfig</param-name>
+  	<param-value>/WEB-INF/layout.xml</param-value>
+  </context-param>
+  
+  <!-- 서블릿 등록 -->
+  <servlet>
+  	<servlet-name>first</servlet-name>
+  	<servlet-class>com.edu.test.Test2</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>test6</servlet-name>
+  	<servlet-class>com.edu.test.Test6</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>initParam</servlet-name>
+  	<servlet-class>com.edu.test.InitParamServlet</servlet-class>
+  	<!-- 등록된 서블릿에서만 사용 가능한 변수 -->
+  	<init-param> 
+  		<param-name>id</param-name>
+  		<param-value>guest</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>password</param-name>
+  		<param-value>1004</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>test7</servlet-name>
+  	<servlet-class>com.edu.test.test7</servlet-class>
+  	<init-param>
+  		<param-name>charset</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </servlet>
+  
+  <!-- 서블릿 URL 작성 -->
+  <servlet-mapping>
+  	<servlet-name>first</servlet-name>
+  	<url-pattern>/exam</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>test6</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>
+  	<servlet-name>initParam</servlet-name>
+  	<url-pattern>/initParamTest</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>test7</servlet-name>
+  	<url-pattern>/servletConfigTest</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+   <welcome-file>index.jsp</welcome-file>
+   <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
+
