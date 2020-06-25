@@ -8,6 +8,49 @@
   	<param-value>/WEB-INF/layout.xml</param-value>
   </context-param>
   
+  <!-- 오류 처리 -->
+  <error-page>
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/errorHandle</location>
+  </error-page>
+  
+  <!-- 리스너 등록 -->
+  <listener>
+  	<listener-class>com.edu.day4.MyListener</listener-class>
+  </listener>
+  
+  <!-- Filter 등록 -->
+  <filter>
+  	<filter-name>firstFilter</filter-name>
+  	<filter-class>com.edu.day4.MyFilter</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>flow1</filter-name>
+  	<filter-class>com.edu.day4.FlowFilterOne</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>flow2</filter-name>
+  	<filter-class>com.edu.day4.FlowFilterTwo</filter-class>
+  	<init-param>
+  		<param-name>charset</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <!-- Filter 매핑 -->
+  <filter-mapping>
+  	<filter-name>firstFilter</filter-name>
+  	<url-pattern>/third</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>flow1</filter-name>
+  	<url-pattern>/secondSer</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>flow2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
   <!-- 서블릿 등록 -->
   <servlet>
   	<servlet-name>first</servlet-name>

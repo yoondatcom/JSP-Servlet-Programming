@@ -7,6 +7,12 @@ public class Order {
 	private int cnt;
 	private int amount;
 	
+	public Order() {
+		this.goodsname = "";
+		this.price = 0;
+		this.amount = 0;
+	}
+	
 	public Order(String goodsname, int price, int cnt) {
 		super();
 		this.goodsname = goodsname;
